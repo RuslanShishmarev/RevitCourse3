@@ -16,6 +16,8 @@ MySquare mySquare = MySquare.Create(firstPoint, 10);
 
 Console.WriteLine(mySquare);
 
+double addArea = GetAreaWithAddinton(mySquare);
+
 mySquare.GetTops().ForEach(x => Console.WriteLine(x));
 
 MyPoint GetPointFromUser(string pointName)
@@ -31,6 +33,11 @@ MyPoint GetPointFromUser(string pointName)
     double z = GetNumFromUser().Value;
 
     return new MyPoint(x, y, z);
+}
+
+double GetAreaWithAddinton(MyFigure figure)
+{
+    return figure.GetArea() * 1.05;
 }
 
 double? GetNumFromUser()
