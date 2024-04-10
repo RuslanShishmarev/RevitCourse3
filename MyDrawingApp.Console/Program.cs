@@ -6,11 +6,17 @@ Console.WriteLine("Приветствую в чертежной программ
 MyPoint firstPoint = GetPointFromUser("1");
 Console.WriteLine(firstPoint);
 
-MyPoint secondPoint = GetPointFromUser("2");
-Console.WriteLine(secondPoint);
+//MyPoint secondPoint = GetPointFromUser("2");
+//Console.WriteLine(secondPoint);
 
-MyLine newLine = MyLine.Create(firstPoint, secondPoint);
-Console.WriteLine(newLine);
+//MyLine newLine = MyLine.Create(firstPoint, secondPoint);
+//Console.WriteLine(newLine);
+
+MySquare mySquare = MySquare.Create(firstPoint, 10);
+
+Console.WriteLine(mySquare);
+
+mySquare.GetTops().ForEach(x => Console.WriteLine(x));
 
 MyPoint GetPointFromUser(string pointName)
 {

@@ -10,12 +10,15 @@
 
         public MyPoint Vector { get; }
 
+        public MyPoint Center { get; }
+
         private MyLine(MyPoint start, MyPoint end)
         {
             Start = start;
             End = end;
             Length = GetLength();
             Vector = GetVector();
+            Center = (Start + End) / 2;
         }
 
         public static MyLine Create(MyPoint start, MyPoint end)
@@ -30,16 +33,18 @@
 
         private double GetLength()
         {
-            double xDiff = Math.Pow(End.X - Start.X, 2);
-            double yDiff = Math.Pow(End.Y - Start.Y, 2);
-            double zDiff = Math.Pow(End.Z - Start.Z, 2);
+            MyPoint dif = End - Start;
+            double xDiff = Math.Pow(dif.X, 2);
+            double yDiff = Math.Pow(dif.Y, 2);
+            double zDiff = Math.Pow(dif.Z, 2);
 
             return Math.Sqrt(xDiff + yDiff + zDiff);
         }
 
         private MyPoint GetVector()
         {
-            throw new NotImplementedException();
+            MyPoint dif = (End - Start) / Length;
+            return dif;
         }
     }
 }
