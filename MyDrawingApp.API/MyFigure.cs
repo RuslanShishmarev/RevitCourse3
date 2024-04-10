@@ -12,7 +12,7 @@
             Lines = lines;
         }
 
-        public double GetPerimeter()
+        public virtual double GetPerimeter()
         {
             return Lines.Sum(l => l.Length);
         }
