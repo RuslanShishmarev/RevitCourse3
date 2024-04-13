@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp_Old
 {
@@ -13,6 +14,9 @@ namespace ConsoleApp_Old
             };
             ShowALlElementsInCollectByIterations(collect1);
             ShowALlElementsInCollectByIndex(collect1);
+
+            var lastElementByIndex = collect1[collect1.Count - 1];
+            var lastElementLinq = collect1.LastOrDefault();
 
             var collect2 = new int[]
             {

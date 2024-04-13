@@ -32,3 +32,20 @@ double? GetNumFromUser()
 
     return result;
 }
+
+// калькулятор с помощью делегатов
+var allOperations = new Dictionary<string, Func<double, double, double>>();
+
+allOperations.Add("+", (n1, n2) => n1 + n2);
+allOperations.Add("-", (n1, n2) => n1 - n2);
+allOperations.Add("*", (n1, n2) => n1 * n2);
+
+if (allOperations.TryGetValue("+", out Func<double, double, double> operation))
+{
+    var result1 = operation(num1, num2);
+    Console.WriteLine(result1);
+}
+else
+{
+    Console.WriteLine("Нет такой операции");
+}
