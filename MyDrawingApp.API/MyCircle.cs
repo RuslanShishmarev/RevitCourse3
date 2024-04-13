@@ -1,6 +1,6 @@
 ﻿namespace MyDrawingApp.API
 {
-    public class MyCircle : MyFigure
+    public class MyCircle : MyFigure, IMyCircle
     {
         public double Radius { get; }
 

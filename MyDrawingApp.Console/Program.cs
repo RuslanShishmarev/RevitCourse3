@@ -25,7 +25,11 @@ var myCircle = MyCircle.Create(firstPoint, 10);
 Console.WriteLine("Length by radius = " + myCircle.GetCircleLength());
 Console.WriteLine("Length by lines = " + myCircle.GetPerimeter());
 
-
+//void GetOnfoFormFigure(IMyCircle myFig)
+//{
+//    Console.WriteLine("Length by radius = " + myFig.GetCircleLength());
+//    Console.WriteLine("Length by lines = " + myFig.GetPerimeter()); // ошибка
+//}
 
 
 MyPoint GetPointFromUser(string pointName)
