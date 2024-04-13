@@ -12,13 +12,21 @@ Console.WriteLine(firstPoint);
 //MyLine newLine = MyLine.Create(firstPoint, secondPoint);
 //Console.WriteLine(newLine);
 
-MySquare mySquare = MySquare.Create(firstPoint, 10);
+//MySquare mySquare = MySquare.Create(firstPoint, 10);
 
-Console.WriteLine(mySquare);
+//Console.WriteLine(mySquare);
 
-double addArea = GetAreaWithAddinton(mySquare);
+//double addArea = GetAreaWithAddinton(mySquare);
 
-mySquare.GetTops().ForEach(x => Console.WriteLine(x));
+//mySquare.GetTops().ForEach(x => Console.WriteLine(x));
+
+var myCircle = MyCircle.Create(firstPoint, 10);
+
+Console.WriteLine("Length by radius = " + myCircle.GetCircleLength());
+Console.WriteLine("Length by lines = " + myCircle.GetPerimeter());
+
+
+
 
 MyPoint GetPointFromUser(string pointName)
 {
