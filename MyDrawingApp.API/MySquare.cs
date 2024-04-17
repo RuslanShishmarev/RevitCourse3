@@ -16,19 +16,9 @@ namespace MyDrawingApp.API
         public static MySquare Create(MyPoint center, double sideLength)
         {
             // create all lines
-            double sideLengthHalf = sideLength / 2;
-            var point1 = new MyPoint(center.X - sideLengthHalf, center.Y - sideLengthHalf, center.Z);
-            var point2 = new MyPoint(center.X - sideLengthHalf, center.Y + sideLengthHalf, center.Z);
-            var point3 = new MyPoint(center.X + sideLengthHalf, center.Y + sideLengthHalf, center.Z);
-            var point4 = new MyPoint(center.X + sideLengthHalf, center.Y - sideLengthHalf, center.Z);
-
-            var lines = new List<MyLine>
-            {
-                MyLine.Create(point1, point2),
-                MyLine.Create(point2, point3),
-                MyLine.Create(point3, point4),
-                MyLine.Create(point4, point1),
-            };
+            double sideLength_Hulf = sideLength / 2;
+            double radius = Math.Sqrt(2 * Math.Pow(sideLength_Hulf, 2));
+            var lines = CreatePolygon(center, radius, 4);
 
             return new MySquare(center, lines);
         }
