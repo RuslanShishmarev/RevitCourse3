@@ -13,6 +13,11 @@ namespace Lesson_RevitAPI
     [Transaction(TransactionMode.Manual)]
     internal class Lesson4 : IExternalCommand
     {
+        private readonly string _markFinished = "finished";
+        private readonly string _messageIfFinished = "Already with finish";
+        private readonly string _finishWallTypeName = "Finish_30";
+        private readonly string _transactionName = "create finish";
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIApplication app = commandData.Application;
@@ -25,25 +30,24 @@ namespace Lesson_RevitAPI
 
             if (IsRoomFinished(selectedRoom))
             {
-                TaskDialog.Show(selectedRoom.Name, "Already with finish");
+                TaskDialog.Show(selectedRoom.Name, _messageIfFinished);
                 return Result.Cancelled;
             }
             // get all boundaries
             var options = new SpatialElementBoundaryOptions();
             var allLimits = selectedRoom.GetBoundarySegments(options).FirstOrDefault().Where(x => x.ElementId != null);
             
-            string finishWallTypeName = "Finish_30";
             // get type for finish walls
             WallType finishType = new FilteredElementCollector(doc)
                 .OfClass(typeof(WallType))
-                .FirstOrDefault(x => x.Name == finishWallTypeName) as WallType;
+                .FirstOrDefault(x => x.Name == _finishWallTypeName) as WallType;
             if (finishType == null)
             {
                 return Result.Failed;
             }
 
             // create finish walls
-            using (var tr = new Transaction(doc, "create finish"))
+            using (var tr = new Transaction(doc, _transactionName))
             {
                 tr.Start();
 
@@ -88,7 +92,6 @@ namespace Lesson_RevitAPI
             return Result.Succeeded;
         }
 
-        private string _markFinished = "finished";
         private void SetRommFinished(Room room)
         {
             room.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set(_markFinished);
