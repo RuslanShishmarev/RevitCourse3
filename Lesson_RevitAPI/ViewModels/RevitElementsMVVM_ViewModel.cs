@@ -15,7 +15,6 @@ namespace Lesson_RevitAPI.ViewModels
 {
     internal class RevitElementsMVVM_ViewModel : ViewModelBase
     {
-
         private ElementContainerViewModel _selectedElement;
         public ElementContainerViewModel SelectedElement
         {
