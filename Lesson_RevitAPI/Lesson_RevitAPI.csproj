@@ -59,11 +59,16 @@
     <Compile Include="Lesson4.cs" />
     <Compile Include="Lesson5.cs" />
     <Compile Include="Lesson6.cs" />
+    <Compile Include="Lesson7.cs" />
     <Compile Include="Models\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ElementContainerViewModel.cs" />
+    <Compile Include="ViewModels\ModalessWndViewModel.cs" />
     <Compile Include="ViewModels\RevitElementsMVVM_ViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\ModalessWnd.xaml.cs">
+      <DependentUpon>ModalessWnd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RevitDataWindow.xaml.cs">
       <DependentUpon>RevitDataWindow.xaml</DependentUpon>
     </Compile>
@@ -75,6 +80,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ModalessWnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RevitDataWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
